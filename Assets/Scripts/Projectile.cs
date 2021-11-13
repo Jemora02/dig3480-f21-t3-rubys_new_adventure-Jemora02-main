@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Projectile : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
     
+   
+    
+    void Start()
+    {
+    
+    }
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -30,6 +37,13 @@ public class Projectile : MonoBehaviour
         if (e != null)
         {
             e.Fix();
+            
+        }
+         RobotHard f = other.collider.GetComponent<RobotHard>();
+        if (f != null)
+        {
+            f.Fix();
+            
         }
     
         Destroy(gameObject);

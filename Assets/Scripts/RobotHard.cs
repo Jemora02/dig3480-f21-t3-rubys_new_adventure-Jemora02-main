@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-﻿public class EnemyController : MonoBehaviour
+public class RobotHard : MonoBehaviour
 {
     public float speed;
     public bool vertical;
@@ -13,7 +12,6 @@ using UnityEngine.UI;
     public int scoreValue = 0;
     public  RubyController RubyController;
     public Text score;
-    
 
 
     Rigidbody2D rigidbody2D;
@@ -81,7 +79,7 @@ using UnityEngine.UI;
 
         if (player != null)
         {
-            player.ChangeHealth(-1);
+            player.ChangeHealth(-2);
         }
     }
     

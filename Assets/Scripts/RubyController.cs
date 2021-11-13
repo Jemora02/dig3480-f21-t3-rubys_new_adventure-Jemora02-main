@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RubyController : MonoBehaviour
 {
@@ -9,12 +11,25 @@ public class RubyController : MonoBehaviour
     public int maxHealth = 5;
     
     public GameObject projectilePrefab;
-    
+    public ParticleSystem Health_GainPrefab;
     public AudioClip throwSound;
     public AudioClip hitSound;
+    public ParticleSystem hitParticle;
+    public Text score;
+    public GameObject loseTextObject;
+    public GameObject winTextObject;
+    public AudioClip musicClipOne;
+    public AudioClip musicClipTwo;
+    public AudioSource musicSource;
+    
+
+
+
     
     public int health { get { return currentHealth; }}
     public int currentHealth;
+    public int scoreValue = 0;
+    
     
     public float timeInvincible = 2.0f;
     bool isInvincible;
@@ -38,6 +53,9 @@ public class RubyController : MonoBehaviour
         currentHealth = maxHealth;
 
         audioSource = GetComponent<AudioSource>();
+        score.text = scoreValue.ToString();
+        winTextObject.SetActive(false);
+        loseTextObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -65,6 +83,10 @@ public class RubyController : MonoBehaviour
                 isInvincible = false;
         }
         
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         if(Input.GetKeyDown(KeyCode.C))
         {
             Launch();
@@ -83,9 +105,26 @@ public class RubyController : MonoBehaviour
             }
         }
         if (Input.GetKey("escape"))
-{
-Application.Quit();
-}
+        {
+        Application.Quit();
+        }
+        if (scoreValue >= 4)
+        {
+            winTextObject.SetActive(true);
+            rigidbody2d.constraints = RigidbodyConstraints2D.FreezeAll;
+            musicSource.clip = musicClipTwo;
+            musicSource.Play();
+            musicSource.loop = true;
+        }
+        if (currentHealth <= 0)
+        {
+            loseTextObject.SetActive(true);
+            rigidbody2d.constraints = RigidbodyConstraints2D.FreezeAll;
+            musicSource.clip = musicClipOne;
+            musicSource.Play();
+            musicSource.loop = true;
+        }
+
     }
     
     void FixedUpdate()
@@ -106,15 +145,23 @@ Application.Quit();
             
             isInvincible = true;
             invincibleTimer = timeInvincible;
-            
             PlaySound(hitSound);
+            animator.SetTrigger("Hit");
+            Instantiate(hitParticle, transform.position + Vector3.up * 0.5f, Quaternion.identity);
         }
-        
+        if (amount > 0)
+        {
+        Instantiate(Health_GainPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+        }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
-    
+    public void ChangeScore(int amount)
+    {
+        
+    }
+
     void Launch()
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
@@ -126,7 +173,14 @@ Application.Quit();
         
         PlaySound(throwSound);
     } 
-    
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Health"))
+
+        {
+        
+        }
+    }
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
