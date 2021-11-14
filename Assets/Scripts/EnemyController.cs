@@ -99,7 +99,7 @@ using UnityEngine.UI;
         smokeEffect.Stop();
         RubyController.scoreValue += 1;
         RubyController.score.text = RubyController.scoreValue.ToString();
-        ;
+        PlaySound(musicClipOne) ;
     }
     public void PlaySound(AudioClip clip)
     {
