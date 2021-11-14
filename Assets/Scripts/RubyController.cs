@@ -159,6 +159,7 @@ public class RubyController : MonoBehaviour
         if (amount > 0)
         {
             Instantiate(Health_GainPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+            PlaySound(hitSound);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
