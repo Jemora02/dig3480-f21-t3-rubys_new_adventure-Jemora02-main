@@ -21,6 +21,12 @@ public class MusicManager : MonoBehaviour
         audioSource.loop = true;
         audioSource.PlayOneShot(musicClipOne);
     }
+    public void PlayMusicClipTwo()
+    {
+        audioSource.Stop();
+        audioSource.loop = true;
+        audioSource.PlayOneShot(musicClipTwo);
+    }
 
 
     // Update is called once per frame
