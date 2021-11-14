@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-﻿public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public float speed;
     public bool vertical;
     public float changeTime = 3.0f;
     public ParticleSystem smokeEffect;
     public int scoreValue = 0;
-    public  RubyController RubyController;
+    public RubyController RubyController;
     public Text score;
     public AudioSource audioSource;
     public AudioClip Broken;
@@ -22,9 +22,9 @@ using UnityEngine.UI;
     float timer;
     int direction = 1;
     bool broken = true;
-    
+
     Animator animator;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +39,11 @@ using UnityEngine.UI;
     void Update()
     {
         //remember ! inverse the test, so if broken is true !broken will be false and return won’t be executed.
-        if(!broken)
+        if (!broken)
         {
             return;
         }
-        
+
         timer -= Time.deltaTime;
 
         if (timer < 0)
@@ -52,17 +52,17 @@ using UnityEngine.UI;
             timer = changeTime;
         }
     }
-    
+
     void FixedUpdate()
     {
         //remember ! inverse the test, so if broken is true !broken will be false and return won’t be executed.
-        if(!broken)
+        if (!broken)
         {
             return;
         }
-        
+
         Vector2 position = rigidbody2D.position;
-        
+
         if (vertical)
         {
             position.y = position.y + Time.deltaTime * speed * direction;
@@ -75,20 +75,20 @@ using UnityEngine.UI;
             animator.SetFloat("Move X", direction);
             animator.SetFloat("Move Y", 0);
         }
-        
+
         rigidbody2D.MovePosition(position);
     }
-    
+
     void OnCollisionEnter2D(Collision2D other)
     {
-        RubyController player = other.gameObject.GetComponent<RubyController >();
+        RubyController player = other.gameObject.GetComponent<RubyController>();
 
         if (player != null)
         {
             player.ChangeHealth(-1);
         }
     }
-    
+
     //Public because we want to call it from elsewhere like the projectile script
     public void Fix()
     {
@@ -99,7 +99,7 @@ using UnityEngine.UI;
         smokeEffect.Stop();
         RubyController.scoreValue += 1;
         RubyController.score.text = RubyController.scoreValue.ToString();
-        PlaySound(musicClipOne) ;
+        PlaySound(Fixed);
     }
     public void PlaySound(AudioClip clip)
     {
