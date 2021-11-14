@@ -8,7 +8,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip musicClipTwo;
     public AudioClip musicClipThree;
     public RubyController RubyController;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
