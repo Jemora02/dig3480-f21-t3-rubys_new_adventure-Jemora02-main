@@ -8,13 +8,14 @@ public class Music : MonoBehaviour
     public AudioClip musicClipTwo;
     public AudioClip musicClipThree;
     public AudioSource musicSource;
-    public RubyController RubyController;
+    public  RubyController RubyController;
 
     // Start is called before the first frame update
     void Start()
     {
-        musicSource.Play(musicClipThree);
-        musicSource.loop = true;
+        musicSource.clip = musicClipThree;
+            musicSource.Play();
+            musicSource.loop = true;
     }
 
     // Update is called once per frame
@@ -23,19 +24,21 @@ public class Music : MonoBehaviour
         if (RubyController.scoreValue >= 4)
         {
             musicSource.Stop();
-            musicSource.Play(musicClipTwo);
+            musicSource.clip = musicClipTwo;
+            musicSource.Play();
             musicSource.loop = true;
-
+            
         }
         if (RubyController.currentHealth <= 0)
         {
             musicSource.Stop();
-            musicSource.Play(musicClipOne);
+            musicSource.clip = musicClipOne;
+            musicSource.Play();
             musicSource.loop = true;
         }
     }
     public void ChangeMusic(AudioClip music)
     {
-
+        
     }
 }
