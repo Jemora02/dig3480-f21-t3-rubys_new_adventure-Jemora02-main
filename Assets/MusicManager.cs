@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public AudioClip musicClipOne;
+    public AudioClip musicClipTwo;
+    public AudioClip musicClipThree;
+    private AudioSource musicSource;
+
     // Start is called before the first frame update
     void Start()
     {
