@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicClipOne: {fileID: 8300000, guid: 244fe11fb315bbc499684f63bf4138f5, type: 3}
-  musicClipTwo: {fileID: 8300000, guid: 244fe11fb315bbc499684f63bf4138f5, type: 3}
+  musicClipTwo: {fileID: 8300000, guid: ed06fb3c5fd07ca4b91eddba898b94bb, type: 3}
   RubyController: {fileID: 161379251}
   audioSource: {fileID: 385070175}
 --- !u!82 &385070175
