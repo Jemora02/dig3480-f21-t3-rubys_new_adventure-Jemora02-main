@@ -13,7 +13,6 @@ public class Music : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicSource.clip = musicClipThree;
         musicSource.Play(musicClipThree);
         musicSource.loop = true;
     }
@@ -24,7 +23,6 @@ public class Music : MonoBehaviour
         if (RubyController.scoreValue >= 4)
         {
             musicSource.Stop();
-            musicSource.clip = musicClipTwo;
             musicSource.Play(musicClipTwo);
             musicSource.loop = true;
 
@@ -32,7 +30,6 @@ public class Music : MonoBehaviour
         if (RubyController.currentHealth <= 0)
         {
             musicSource.Stop();
-            musicSource.clip = musicClipOne;
             musicSource.Play(musicClipOne);
             musicSource.loop = true;
         }
