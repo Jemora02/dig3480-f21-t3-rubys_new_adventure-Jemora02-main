@@ -27,6 +27,7 @@ public class MusicManager : MonoBehaviour
     {
         if (RubyController.scoreValue >= 4)
         {
+            audioSource
             PlaySound(musicClipOne);
         }
         if (RubyController.currentHealth <= 0)
