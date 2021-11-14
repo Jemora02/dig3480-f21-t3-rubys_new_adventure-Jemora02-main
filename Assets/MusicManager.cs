@@ -16,7 +16,7 @@ public class MusicManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         PlayMusicClipThree();
     }
-    public void PlayMusicClipOne()
+    public void PlaySound(AudioClip clip)
     {
         audioSource.Stop();
         audioSource.loop = true;
