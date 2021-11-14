@@ -6,7 +6,6 @@ public class WinandLose : MonoBehaviour
 {
     public AudioClip musicClipOne;
     public AudioClip musicClipTwo;
-    public AudioClip musicClipThree;
     public RubyController RubyController;
     public AudioSource audioSource;
 
@@ -14,7 +13,6 @@ public class WinandLose : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        PlaySound(musicClipThree);
     }
     public void PlaySound(AudioClip clip)
     {
@@ -28,12 +26,10 @@ public class WinandLose : MonoBehaviour
     {
         if (RubyController.scoreValue >= 4)
         {
-            audioSource.Stop(musicClipThree);
             PlaySound(musicClipOne);
         }
         if (RubyController.currentHealth <= 0)
         {
-            audioSource.Stop(musicClipThree);
             PlaySound(musicClipTwo);
         }
     }

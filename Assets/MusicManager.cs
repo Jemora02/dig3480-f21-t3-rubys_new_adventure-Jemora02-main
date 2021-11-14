@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioClip musicClipOne;
-    public AudioClip musicClipTwo;
+    
     public AudioClip musicClipThree;
     public RubyController RubyController;
     public AudioSource audioSource;
@@ -28,13 +27,12 @@ public class MusicManager : MonoBehaviour
     {
         if (RubyController.scoreValue >= 4)
         {
-            audioSource.Stop(musicClipThree);
-            PlaySound(musicClipOne);
+            audioSource.Stop();
+            
         }
         if (RubyController.currentHealth <= 0)
         {
-            audioSource.Stop(musicClipThree);
-            PlaySound(musicClipTwo);
+            audioSource.Stop();
         }
     }
 }
