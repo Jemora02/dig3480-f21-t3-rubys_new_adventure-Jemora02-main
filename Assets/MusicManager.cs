@@ -28,7 +28,7 @@ public class MusicManager : MonoBehaviour
     {
         if (RubyController.scoreValue >= 4)
         {
-            musicClipThree
+            musicClipThree.stop
             PlaySound(musicClipOne);
         }
         if (RubyController.currentHealth <= 0)
