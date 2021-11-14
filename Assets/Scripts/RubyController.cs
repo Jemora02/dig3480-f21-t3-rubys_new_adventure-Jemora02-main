@@ -14,6 +14,7 @@ public class RubyController : MonoBehaviour
     public ParticleSystem Health_GainPrefab;
     public AudioClip throwSound;
     public AudioClip hitSound;
+    public AudioClip collectSound;
     public ParticleSystem hitParticle;
     public Text score;
     public GameObject loseTextObject;
@@ -159,7 +160,7 @@ public class RubyController : MonoBehaviour
         if (amount > 0)
         {
             Instantiate(Health_GainPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-            PlaySound(hitSound);
+            PlaySound(collectSound);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
