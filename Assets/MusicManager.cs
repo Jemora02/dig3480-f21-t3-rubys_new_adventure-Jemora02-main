@@ -18,7 +18,6 @@ public class MusicManager : MonoBehaviour
     }
     public void PlaySound(AudioClip clip)
     {
-        audioSource.Stop();
         audioSource.loop = true;
         audioSource.PlayOneShot(clip);
     }
