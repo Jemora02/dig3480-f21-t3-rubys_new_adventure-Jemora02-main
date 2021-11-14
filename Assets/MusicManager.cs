@@ -13,14 +13,15 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            Debug.LogWarning("AudioSource component missing from this gameobject. Adding one.");
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-        PlayRegularAudioClip();
+        audioSource = GetComponent<AudioSource>();
     }
+    public void PlayMusicClipOne()
+    {
+        audioSource.Stop();
+        audioSource.loop = true;
+        audioSource.PlayOneShot(musicClipOne);
+    }
+
 
     // Update is called once per frame
     void Update()
