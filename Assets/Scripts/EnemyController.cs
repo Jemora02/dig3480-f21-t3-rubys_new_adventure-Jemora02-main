@@ -100,4 +100,10 @@ using UnityEngine.UI;
         RubyController.scoreValue += 1;
         RubyController.score.text = RubyController.scoreValue.ToString();;
     }
+    public void PlaySound(AudioClip clip)
+    {
+
+        audioSource.PlayOneShot(clip);
+    }
+
 }
