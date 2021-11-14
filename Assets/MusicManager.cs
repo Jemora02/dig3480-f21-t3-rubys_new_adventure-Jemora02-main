@@ -14,11 +14,11 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        PlaySound (musicClipThree);
     }
     public void PlaySound(AudioClip clip)
     {
-        audioSource.Stop();
-        audioSource.loop = true;
+        
         audioSource.PlayOneShot(clip);
     }
 
