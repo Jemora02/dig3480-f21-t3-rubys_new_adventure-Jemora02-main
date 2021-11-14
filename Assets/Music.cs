@@ -23,15 +23,15 @@ public class Music : MonoBehaviour
     {
         if (RubyController.scoreValue >= 4)
         {
-            
+            musicSource.Stop();
             musicSource.clip = musicClipTwo;
-            musicSource.Play();
+            musicSource.Play(music);
             musicSource.loop = true;
             
         }
         if (RubyController.currentHealth <= 0)
         {
-            
+            musicSource.Stop();
             musicSource.clip = musicClipOne;
             musicSource.Play();
             musicSource.loop = true;
