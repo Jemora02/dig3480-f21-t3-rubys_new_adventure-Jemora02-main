@@ -32,6 +32,8 @@ using UnityEngine.UI;
         timer = changeTime;
         animator = GetComponent<Animator>();
         score.text = scoreValue.ToString();
+        audioSource = GetComponent<AudioSource>();
+        PlaySound(Broken);
     }
 
     void Update()
