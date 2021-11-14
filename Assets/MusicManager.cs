@@ -14,6 +14,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        PlayMusicClipThree();
     }
     public void PlayMusicClipOne()
     {
