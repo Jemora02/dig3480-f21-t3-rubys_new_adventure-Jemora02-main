@@ -110,9 +110,7 @@ public class RubyController : MonoBehaviour
         {
             winTextObject.SetActive(true);
             rigidbody2d.constraints = RigidbodyConstraints2D.FreezeAll;
-            musicSource.clip = musicClipTwo;
-            musicSource.Play();
-            musicSource.loop = true;
+            
 
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -123,9 +121,7 @@ public class RubyController : MonoBehaviour
         {
             loseTextObject.SetActive(true);
             rigidbody2d.constraints = RigidbodyConstraints2D.FreezeAll;
-            musicSource.clip = musicClipOne;
-            musicSource.Play();
-            musicSource.loop = true;
+            
 
             if (Input.GetKeyDown(KeyCode.R))
             {
