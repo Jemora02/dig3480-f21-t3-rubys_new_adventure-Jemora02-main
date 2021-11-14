@@ -20,7 +20,7 @@ public class RobotHard : MonoBehaviour
     bool broken = true;
     
     Animator animator;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +28,8 @@ public class RobotHard : MonoBehaviour
         timer = changeTime;
         animator = GetComponent<Animator>();
         score.text = scoreValue.ToString();
+        audioSource = GetComponent<AudioSource>();
+        PlaySound(Broken);
     }
 
     void Update()
