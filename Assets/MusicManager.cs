@@ -18,7 +18,7 @@ public class MusicManager : MonoBehaviour
     }
     public void PlaySound(AudioClip clip)
     {
-        audioSource.clip = clips[clipIndex];
+        audioSource.clip = Audioclip [clip];
         audioSource.Play();
     }
 
