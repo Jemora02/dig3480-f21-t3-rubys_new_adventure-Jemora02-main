@@ -14,7 +14,6 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        PlayMusicClipThree();
     }
     public void PlaySound(AudioClip clip)
     {
@@ -28,11 +27,11 @@ public class MusicManager : MonoBehaviour
     {
         if (RubyController.scoreValue >= 4)
         {
-            PlayMusicClipOne();
+            PlaySound(musicClipOne);
         }
         if (RubyController.currentHealth <= 0)
         {
-            PlayMusicClipTwo();
+            PlaySound(musicClipTwo);
         }
     }
 }
