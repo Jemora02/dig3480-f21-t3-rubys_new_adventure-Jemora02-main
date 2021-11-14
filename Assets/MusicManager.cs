@@ -7,7 +7,8 @@ public class MusicManager : MonoBehaviour
     public AudioClip musicClipOne;
     public AudioClip musicClipTwo;
     public AudioClip musicClipThree;
-    private AudioSource musicSource;
+    public 
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class MusicManager : MonoBehaviour
         {
             audioSource.Stop();
             audioSource.loop = true;
-            audioSource.PlayOneShot(MusicClipOne);
+            audioSource.PlayOneShot(musicClipOne);
 
         }
         if (Rubycontroller.currentHealth <= 0)
