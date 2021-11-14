@@ -12,6 +12,9 @@ public class RobotHard : MonoBehaviour
     public int scoreValue = 0;
     public  RubyController RubyController;
     public Text score;
+    public AudioSource audioSource;
+    public AudioClip Broken;
+    public AudioClip Fixed;
 
 
     Rigidbody2D rigidbody2D;
