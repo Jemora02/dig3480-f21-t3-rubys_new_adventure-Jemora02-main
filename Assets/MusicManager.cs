@@ -20,8 +20,7 @@ public class MusicManager : MonoBehaviour
     {
 
         audioSource.loop = true;
-        audioSource.clip = Clips(clip);
-        
+        audioSource.clip = (clip);
     }
 
     // Update is called once per frame
