@@ -22,14 +22,14 @@ public class MusicManager : MonoBehaviour
         {
             audioSource.Stop();
             audioSource.loop = true;
-            audioSource.PlayOneShot(MusicClip);
+            audioSource.PlayOneShot(MusicClipOne);
 
         }
         if (Rubycontroller.currentHealth <= 0)
         {
             audioSource.Stop();
             audioSource.loop = true;
-            audioSource.PlayOneShot(regularAudioClip);
+            audioSource.PlayOneShot(musicClipTwo);
         }
     }
 }
