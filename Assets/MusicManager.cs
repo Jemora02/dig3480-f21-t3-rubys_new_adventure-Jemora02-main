@@ -28,12 +28,12 @@ public class MusicManager : MonoBehaviour
     {
         if (RubyController.scoreValue >= 4)
         {
-            musicClipThree.Stop();
+            audioSource.Stop(musicClipThree);
             PlaySound(musicClipOne);
         }
         if (RubyController.currentHealth <= 0)
         {
-            musicClipThree.Stop();
+            audioSource.Stop(musicClipThree);
             PlaySound(musicClipTwo);
         }
     }
