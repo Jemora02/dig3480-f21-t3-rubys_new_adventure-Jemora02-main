@@ -92,6 +92,13 @@ public class RobotHard : MonoBehaviour
         animator.SetTrigger("Fixed");
         smokeEffect.Stop();
         RubyController.scoreValue += 1;
-        RubyController.score.text = RubyController.scoreValue.ToString();;
+        RubyController.score.text = RubyController.scoreValue.ToString();
+        PlaySound(Fixed);
     }
+    public void PlaySound(AudioClip clip)
+    {
+
+        audioSource.PlayOneShot(clip);
+    }
+
 }
