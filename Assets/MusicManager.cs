@@ -35,11 +35,10 @@ public class MusicManager : MonoBehaviour
         if (RubyController.scoreValue >= 4)
         {
             PlayMusicClipOne();
-
         }
         if (RubyController.currentHealth <= 0)
         {
-            PlayMusicClipTwo()
+            PlayMusicClipTwo();
         }
     }
 }
