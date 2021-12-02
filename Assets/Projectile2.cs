@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Projectile : MonoBehaviour
+public class Projectile2 : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
     
@@ -33,25 +32,12 @@ public class Projectile : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D other)
     {
-        EnemyController e = other.collider.GetComponent<EnemyController>();
-        if (e != null)
+        RubyController p = other.collider.GetComponent<RubyController >();
+
+        if (p != null)
         {
-            e.Fix();
-            
+            p.ChangeHealth(-2);
         }
-         RobotHard f = other.collider.GetComponent<RobotHard>();
-        if (f != null)
-        {
-            f.Fix();
-            
-        }
-        BossRobot g = other.collider.GetComponent<BossRobot>();
-        if (g != null)
-        {
-            g.ChangeHealth(-1);
-            
-        }
-    
         Destroy(gameObject);
     }
 }

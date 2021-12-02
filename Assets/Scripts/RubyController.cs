@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class RubyController : MonoBehaviour
 {
-    public float speed = 3.0f;
+    public int maxSpeed = 5;
 
     public int maxHealth = 5;
 
@@ -28,7 +28,9 @@ public class RubyController : MonoBehaviour
 
 
     public int health { get { return currentHealth; } }
+    public int speed { get { return currentSpeed; } }
     public int currentHealth;
+    public int currentSpeed;
     public int scoreValue = 0;
 
 
@@ -100,6 +102,11 @@ public class RubyController : MonoBehaviour
                 {
                     character.DisplayDialog();
                 }
+                DogNpc character2 = hit.collider.GetComponent<DogNpc>();
+                if (character2 != null)
+                {
+                    character2.DisplayDialog();
+                }
             }
         }
         if (Input.GetKey("escape"))
@@ -162,8 +169,17 @@ public class RubyController : MonoBehaviour
 
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
-    public void ChangeScore(int amount)
+    public void ChangeSpeed(int amount)
     {
+        if (amount < 0)
+        {
+           
+        }
+        if (amount > 0)
+        {
+            
+        }
+        currentSpeed = Mathf.Clamp(currentSpeed + amount, 0, maxSpeed);
 
     }
 
